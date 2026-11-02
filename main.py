@@ -29,7 +29,6 @@ def fetch_financial_news():
 
 @app.route("/")
 def home():
-    # สั่งดึงข่าวและส่งเข้า Telegram ทันทีที่เปิดเว็บหลัก
     news_summary = fetch_financial_news()
     message = f"📢 **สรุปข่าวสารการเงินประจำวัน**\n\n{news_summary}"
     send_telegram_message(message)
