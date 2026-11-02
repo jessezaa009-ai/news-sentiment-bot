@@ -29,14 +29,11 @@ def fetch_financial_news():
 
 @app.route("/")
 def home():
-    return "News Bot is running!"
-
-@app.route("/run-bot")
-def run_bot():
+    # สั่งดึงข่าวและส่งเข้า Telegram ทันทีที่เปิดเว็บหลัก
     news_summary = fetch_financial_news()
     message = f"📢 **สรุปข่าวสารการเงินประจำวัน**\n\n{news_summary}"
     send_telegram_message(message)
-    return "Bot executed and sent message to Telegram!"
+    return "News Bot executed and sent message to Telegram successfully!"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
